@@ -1,4 +1,28 @@
-.venv
-.python-version
+# Environment
+.venv/
+.env
+
+# Cache
+.mypy_cache
+.pytest_cache
+.ruff_cache
+
+# Build and Compiled
+dist/
+_build/
 *.pyc
-__pycache__/
+docs/pages/notebooks/*.ipynb
+
+# Test Coverage
+.coverage
+htmlcov/
+coverage.xml
+
+# Local work
+tmp/
+.vscode/
+scratchworks/
+scratchwork.py
+local.md
+ISSUES.md
+.python-version

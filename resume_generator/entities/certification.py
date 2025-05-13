@@ -1,4 +1,4 @@
-from typing import Annotated, Union
+from typing import Annotated
 
 from pydantic import BaseModel, HttpUrl, StringConstraints
 
@@ -11,4 +11,4 @@ class Certification(BaseModel):
     date: str
     authority: str
     name: str
-    url: Union[HttpUrl, Annotated[str, StringConstraints(max_length=0)]] = ""
+    url: HttpUrl | Annotated[str, StringConstraints(max_length=0)] = ""

@@ -13,10 +13,74 @@ dependencies = [
 ]
 
 
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+ruff = ">=0.11.9"
+mypy = ">=1.15.0"
+pre-commit = ">=4.2.0"
+
+
+[tool.ruff]
+exclude = ["**/*.ipynb"]
+line-length = 88
+indent-width = 4
+respect-gitignore = true
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "C",  # McCabe complexity
+    "E",  # pycodestyle
+    "W",  # pycodestyle warnings
+    "F",  # Pyflakes
+    "I",  # isort
+    "UP",  # pyupgrade
+    "PL",  # Pylint
+    "B",  # flake8-bugbear
+    "ASYNC",  # flake8-async
+    "SIM",  # flake8-simplify
+    "N",  # pep8-naming
+]
+ignore = [
+]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.per-file-ignores]
+# "__init__.py" = ["F401"]  # Imported but unused
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+known-first-party = ["resume_generator", "tests"]
+extra-standard-library = ["typing_extensions"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+
+[tool.mypy]
+packages = ["resume_generator"]
+cache_fine_grained = true
+ignore_missing_imports = true
+disallow_untyped_defs = false
+check_untyped_defs = true
+warn_return_any = true
+warn_unreachable = true
+
+
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.11.9"
-

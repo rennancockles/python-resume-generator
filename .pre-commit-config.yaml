@@ -1,0 +1,44 @@
+default_install_hook_types: [commit-msg, pre-commit]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ['—-maxkb=512']
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-merge-conflict
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+      - id: requirements-txt-fixer
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.9
+    hooks:
+      - id: ruff
+      - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: semantic-commit-format
+        name: Semantic Commit Format
+        description: >
+          Check whether the current commit message follows commiting rules.
+          - see: https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format
+        language: pygrep
+        entry: '\A(?!(chore|cicd|docs|feat|fix|perf|style|refactor|config|test)(?:\([^\)]+\))?:\s.*)'
+        args: [--multiline]
+        stages: [commit-msg]
+
+      - id: mypy
+        name: mypy
+        entry: make mypy
+        language: system
+        require_serial: true
+        stages: [pre-commit, pre-merge-commit, pre-push, manual]

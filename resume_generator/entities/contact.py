@@ -1,4 +1,4 @@
-from typing import Annotated, Union
+from typing import Annotated
 
 from pydantic import BaseModel, EmailStr, HttpUrl, StringConstraints
 
@@ -28,7 +28,7 @@ class Contact(BaseModel):
 
     address: Address
     phone: Phone
-    email: Union[EmailStr, Annotated[str, StringConstraints(max_length=0)]] = ""
-    website: Union[HttpUrl, Annotated[str, StringConstraints(max_length=0)]] = ""
-    linkedin: Union[HttpUrl, Annotated[str, StringConstraints(max_length=0)]] = ""
-    github: Union[HttpUrl, Annotated[str, StringConstraints(max_length=0)]] = ""
+    email: EmailStr | Annotated[str, StringConstraints(max_length=0)] = ""
+    website: HttpUrl | Annotated[str, StringConstraints(max_length=0)] = ""
+    linkedin: HttpUrl | Annotated[str, StringConstraints(max_length=0)] = ""
+    github: HttpUrl | Annotated[str, StringConstraints(max_length=0)] = ""
