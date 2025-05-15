@@ -42,3 +42,18 @@ def test_valid_empty_values() -> None:
 def test_valid_json() -> None:
     """Test if the function does not raise any exception when the file is valid."""
     main(Path("tests/inputs/valid.json"))
+
+
+def test_template_not_exist() -> None:
+    """
+    Test if the function raises NotADirectoryError when the template does not exist.
+    """
+    with pytest.raises(NotADirectoryError):
+        main(Path("tests/inputs/valid.json"), "invalid_template")
+
+
+def test_valid_template() -> None:
+    """
+    Test if the function does not raise any exception when the template is valid.
+    """
+    main(Path("tests/inputs/valid.json"), "basic")

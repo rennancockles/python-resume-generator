@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="favicon.ico">
+  <title>Resume - {{ name }}</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Julius+Sans+One&family=Open+Sans&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <page size="A4">
+    <div class="container">
+      <div class="leftPanel">
+        <div class="details">
+          <div class="item bottomLineSeparator">
+            <h2>
+              CONTACT
+            </h2>
+            <div class="smallText">
+              {% if contact.phone and contact.phone.number %}
+              <p>
+                <i class="fa fa-phone contactIcon" aria-hidden="true"></i>
+                {% if contact.phone.whatsapp %}
+                <a href="https://wa.me/send?phone={{ contact.phone.number | only_numbers  }}">
+                  {{ contact.phone.number }}
+                </a>
+                {% else %}
+                {{ contact.phone.number }}
+                {% endif %}
+              </p>
+              {% endif %}
+
+              {% if contact.email %}
+              <p>
+                <i class="fa fa-envelope contactIcon" aria-hidden="true"></i>
+                <a href="mailto:{{ contact.email }}">
+                  {{ contact.email }}
+                </a>
+              </p>
+              {% endif %}
+
+              {% if contact.address and contact.address.line1 %}
+              <p>
+                <i class="fa fa-map-marker contactIcon" aria-hidden="true"></i>
+                {{ contact.address.line1 }}
+              </p>
+              {% endif %}
+
+              {% if contact.website %}
+              <p>
+                <i class="fa fa-globe contactIcon" aria-hidden="true"></i>
+                <a href="{{ contact.website }}">
+                  {{ contact.website.host }}
+                </a>
+              </p>
+              {% endif %}
+
+              {% if contact.linkedin %}
+              <p>
+                <i class="fa fa-linkedin-square contactIcon" aria-hidden="true"></i>
+                <a href="{{ contact.linkedin }}">
+                  {{ contact.linkedin | url_path }}
+                </a>
+              </p>
+              {% endif %}
+
+              {% if contact.github %}
+              <p>
+                <i class="fa fa-github contactIcon" aria-hidden="true"></i>
+                <a href="{{ contact.github }}">
+                  {{ contact.github | url_path }}
+                </a>
+              </p>
+              {% endif %}
+
+            </div>
+          </div>
+
+          {% if languages %}
+          <div class="item">
+            <h2>
+              LANGUAGES
+            </h2>
+            {% for language in languages %}
+            <div class="smallText">
+              <p class="bolded white">
+                <i class="fa fa-language contactIcon" aria-hidden="true"></i>
+                {{ language.language }}
+              </p>
+              <p>
+                {{ language.level }}
+              </p>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <!-- <div class="item bottomLineSeparator">
+            <h2>
+              SKILLS
+            </h2>
+            <div class="smallText">
+              <div class="skill">
+                <div>
+                  <span>Accounting</span>
+                </div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">14</span>
+                  <span class="alignleft">years</span>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div>
+                  <span>Word</span>
+                </div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">3</span>
+                  <span class="alignleft">years</span>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div>
+                  <span>Powerpoint</span>
+                </div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">3</span>
+                  <span class="alignleft">years</span>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div>
+                  <span>Accounting</span>
+                </div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">2</span>
+                  <span class="alignleft">years</span>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div>
+                  <span>Marketing</span>
+                </div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">2</span>
+                  <span class="alignleft">years</span>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div>
+                  <span>Photoshop</span>
+                </div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">2</span>
+                  <span class="alignleft">years</span>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div>
+                  <span>French</span>
+                </div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">2</span>
+                  <span class="alignleft">years</span>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div>
+                  <span>English</span>
+                </div>
+                <div class="yearsOfExperience">
+                    <span class="alignright">1</span>
+                    <span class="alignleft">year</span>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div>
+                  <span>Management</span>
+                </div>
+                <div class="yearsOfExperience">
+                  <span>1 year</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+           -->
+        </div>
+
+      </div>
+
+      <div class="rightPanel">
+        <div>
+          <h1>
+            {{ name }}
+          </h1>
+          <div class="smallText">
+            <h3>
+              {{ title }}
+            </h3>
+          </div>
+        </div>
+
+        {% if summary %}
+        <div>
+          <h2>
+            About me
+          </h2>
+          <div class="smallText">
+            {% for line in summary.split("\n") %}
+            <p>{{ line }}</p>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if education %}
+        <div class="education">
+          <h2>
+            Education
+          </h2>
+          <ul>
+            {% for edu in education %}
+            <li>
+              <div class="eduTitle bolded">
+                <span>
+                  {{ edu.title }}
+                </span>
+                <span>
+                  {{ edu.start_date }} - {{ edu.end_date if edu.end_date else "current" }}
+                </span>
+              </div>
+              <div class="eduInstitution">
+                <span>
+                  {{ edu.institution }}
+                </span>
+                <span>
+                  {{ edu.location }}
+                </span>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+        <div class="workExperience">
+          <h2>
+            Work experience
+          </h2>
+          <ul>
+            {% for experience in work_experience %}
+            <li>
+              <div class="jobPosition">
+                <span class="bolded">
+                  {{ experience.title }}
+                </span>
+                <span>
+                  {{ experience.start_date }} - {{ experience.end_date if experience.end_date else "current" }}
+                </span>
+              </div>
+              <div class="projectName">
+                <span class="bolded">
+                  {{ experience.company }}
+                </span>
+                <span>
+                  {{ experience.location }} {% if experience.remote %}• Remote{% endif %}
+                </span>
+              </div>
+              <div class="smallText">
+                {% for line in experience.description.split("\n") %}
+                <p>{{ line }}</p>
+                {% endfor %}
+
+                {% if experience.tools %}
+                <p>
+                  <span class="bolded">Skills: </span>{{ experience.tools | join(', ') }}
+                </p>
+                {% endif %}
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </page>
+  <!-- <page size="A4">
+    <div class="container">
+      <div class="leftPanel">
+      </div>
+      <div class="rightPanel">
+      </div>
+  </page> -->
+</body>
+</html>
