@@ -29,6 +29,16 @@ def test_invalid_email() -> None:
         main(Path("tests/inputs/invalid_email.json"))
 
 
+def test_valid_empty_schema() -> None:
+    """Test if the function does not raise any exception when the file is valid."""
+    main(Path("tests/inputs/valid_empty_schema.json"))
+
+
+def test_valid_empty_values() -> None:
+    """Test if the function does not raise any exception when the file is valid."""
+    main(Path("tests/inputs/valid_empty_values.json"))
+
+
 def test_valid_json() -> None:
     """Test if the function does not raise any exception when the file is valid."""
-    main(Path("tests/inputs/valid_empty.json"))
+    main(Path("tests/inputs/valid.json"))

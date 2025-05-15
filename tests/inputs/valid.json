@@ -1,0 +1,61 @@
+{
+  "name": "Rennan Cockles",
+  "title": "Software Engineer",
+  "summary":"",
+  "education": [
+    {
+      "start_date": "2010",
+      "end_date": "2015",
+      "location": "Rio de Janeiro - RJ",
+      "title": "Bachelor of Science in Computer Engineering",
+      "institution": "State University of Rio de Janeiro, UERJ"
+    }
+  ],
+  "work_experience": [
+    {
+      "start_date": "2024-12",
+      "end_date": "",
+      "location": "New York - NY",
+      "remote": true,
+      "company": "Company 2",
+      "title": "Software Engineer",
+      "description": "Developing and maintaining software applications.",
+      "tools": ["python", "fastapi", "docker"]
+    },
+    {
+      "start_date": "2024-01",
+      "end_date": "2024-12",
+      "location": "Rio de Janeiro - RJ",
+      "remote": false,
+      "company": "Company 1",
+      "title": "Software Engineer",
+      "description": "Developing and maintaining software applications.",
+      "tools": ["node", "express", "mongodb"]
+    }
+  ],
+  "contact": {
+    "address": {
+      "line1": "Rio de Janeiro - RJ",
+      "line2": ""
+    },
+    "phone": {
+      "number": "+55 21 99999-9999",
+      "whatsapp": true
+    },
+    "email": "my_email@gmail.com",
+    "website": "",
+    "linkedin": "https://www.linkedin.com/in/rennancockles",
+    "github": "https://github.com/rennancockles"
+  },
+  "languages": [
+    {
+      "language": "Portuguese",
+      "level": "Native"
+    },
+    {
+      "language": "English",
+      "level": "Advanced"
+    }
+  ],
+  "certifications": []
+}

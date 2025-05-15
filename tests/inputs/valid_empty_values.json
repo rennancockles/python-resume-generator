@@ -1,0 +1,47 @@
+{
+  "name": "Test",
+  "title": "",
+  "summary":"",
+  "education": [
+    {
+      "start_date": "",
+      "end_date": "",
+      "location": "",
+      "title": "",
+      "institution": ""
+    }
+  ],
+  "work_experience": [
+    {
+      "start_date": "",
+      "end_date": "",
+      "location": "",
+      "remote": false,
+      "company": "",
+      "title": "",
+      "description": "",
+      "tools": []
+    }
+  ],
+  "contact": {
+    "address": {
+      "line1": "",
+      "line2": ""
+    },
+    "phone": {
+      "number": "",
+      "whatsapp": false
+    },
+    "email": "",
+    "website": "",
+    "linkedin": "",
+    "github": ""
+  },
+  "languages": [
+    {
+      "language": "",
+      "level": "Basic"
+    }
+  ],
+  "certifications": []
+}

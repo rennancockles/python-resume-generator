@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class WorkExperience(BaseModel):
@@ -13,4 +13,4 @@ class WorkExperience(BaseModel):
     company: str
     title: str
     description: str = ""
-    tools: str = ""
+    tools: list[str] = Field(default_factory=list)
