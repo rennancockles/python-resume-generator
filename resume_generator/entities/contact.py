@@ -8,7 +8,7 @@ class Address(BaseModel):
     Represents an address entry in a resume.
     """
 
-    line1: str
+    line1: str = ""
     line2: str = ""
 
 
@@ -17,7 +17,7 @@ class Phone(BaseModel):
     Represents a phone entry in a resume.
     """
 
-    number: str
+    number: str = ""
     whatsapp: bool = False
 
 
