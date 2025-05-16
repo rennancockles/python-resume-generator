@@ -22,8 +22,12 @@ def build_template(resume: Resume, template_path: Path) -> None:
     env.filters["only_numbers"] = only_numbers
     env.filters["url_path"] = url_path
 
+    context = resume.model_dump()
+    if not context["skills"]:
+        context["skills"] = resume.get_calculated_skills()
+
     template = env.get_template("index.html")
-    output = template.render(resume.model_dump())
+    output = template.render(context)
 
     if output_folder.exists():
         shutil.rmtree(output_folder, ignore_errors=True)

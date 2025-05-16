@@ -82,7 +82,7 @@
           </div>
 
           {% if languages %}
-          <div class="item">
+          <div class="item bottomLineSeparator">
             <h2>
               LANGUAGES
             </h2>
@@ -100,103 +100,25 @@
           </div>
           {% endif %}
 
-          <!-- <div class="item bottomLineSeparator">
+          <div class="item">
             <h2>
               SKILLS
             </h2>
             <div class="smallText">
+              {% for skill in skills %}
               <div class="skill">
                 <div>
-                  <span>Accounting</span>
+                  <span>{{ skill.name }}</span>
                 </div>
                 <div class="yearsOfExperience">
-                  <span class="alignright">14</span>
+                  <span class="alignright">{{ skill.years }}</span>
                   <span class="alignleft">years</span>
                 </div>
               </div>
-
-              <div class="skill">
-                <div>
-                  <span>Word</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">3</span>
-                  <span class="alignleft">years</span>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div>
-                  <span>Powerpoint</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">3</span>
-                  <span class="alignleft">years</span>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div>
-                  <span>Accounting</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">2</span>
-                  <span class="alignleft">years</span>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div>
-                  <span>Marketing</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">2</span>
-                  <span class="alignleft">years</span>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div>
-                  <span>Photoshop</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">2</span>
-                  <span class="alignleft">years</span>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div>
-                  <span>French</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">2</span>
-                  <span class="alignleft">years</span>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div>
-                  <span>English</span>
-                </div>
-                <div class="yearsOfExperience">
-                    <span class="alignright">1</span>
-                    <span class="alignleft">year</span>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div>
-                  <span>Management</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span>1 year</span>
-                </div>
-              </div>
-
+              {% endfor %}
             </div>
           </div>
-           -->
+
         </div>
 
       </div>
