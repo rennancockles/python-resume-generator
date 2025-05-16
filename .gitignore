@@ -12,6 +12,8 @@ dist/
 _build/
 *.pyc
 docs/pages/notebooks/*.ipynb
+.DS_Store
+__pycache__
 
 # Test Coverage
 .coverage
@@ -27,3 +29,4 @@ scratchwork.py
 local.md
 ISSUES.md
 .python-version
+docker-compose.yaml
